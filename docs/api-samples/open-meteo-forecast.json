@@ -1,0 +1,28 @@
+{
+  "latitude": 52.4,
+  "longitude": 16.9,
+  "generationtime_ms": 0.12,
+  "utc_offset_seconds": 7200,
+  "timezone": "Europe/Warsaw",
+  "timezone_abbreviation": "CEST",
+  "elevation": 84.0,
+  "current_units": {
+    "time": "iso8601", "interval": "seconds",
+    "temperature_2m": "°C", "weather_code": "wmo code", "wind_speed_10m": "km/h"
+  },
+  "current": {
+    "time": "2026-06-15T14:00", "interval": 900,
+    "temperature_2m": 21.4, "weather_code": 2, "wind_speed_10m": 11.2
+  },
+  "daily_units": {
+    "time": "iso8601", "weather_code": "wmo code",
+    "temperature_2m_max": "°C", "temperature_2m_min": "°C", "precipitation_sum": "mm"
+  },
+  "daily": {
+    "time": ["2026-06-15", "2026-06-16", "2026-06-17", "2026-06-18", "2026-06-19"],
+    "weather_code": [2, 3, 61, 80, 0],
+    "temperature_2m_max": [23.1, 22.0, 18.5, 19.2, 25.4],
+    "temperature_2m_min": [12.3, 13.1, 12.8, 11.0, 12.9],
+    "precipitation_sum": [0.0, 0.2, 6.4, 3.1, 0.0]
+  }
+}
