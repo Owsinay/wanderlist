@@ -6,4 +6,6 @@ data class Route(
     val distanceMeters: Double,
     val durationSeconds: Double,
     val transportMode: TransportMode,
+    /** True, gdy trasa pochodzi z zapisanej kopii (brak internetu), a nie z aktualnego zapytania. */
+    val isFromCache: Boolean = false,
 )
