@@ -32,6 +32,7 @@ android {
 
         manifestPlaceholders["MAPS_API_KEY"] = secret("MAPS_API_KEY")
         buildConfigField("String", "ORS_API_KEY", "\"${secret("ORS_API_KEY")}\"")
+        buildConfigField("boolean", "HAS_MAPS_KEY", secret("MAPS_API_KEY").isNotBlank().toString())
     }
 
     buildTypes {

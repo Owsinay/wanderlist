@@ -14,6 +14,19 @@
     <string name="action_add_place">Dodaj miejsce</string>
     <string name="action_edit">Edytuj</string>
 
+    <string name="action_close">Zamknij</string>
+    <string name="action_show_details">Pokaż szczegóły</string>
+
+    <string name="status_want_to_visit">Do odwiedzenia</string>
+    <string name="status_visited">Odwiedzone</string>
+    <string name="filter_all">Wszystkie</string>
+
+    <string name="map_content_description">Mapa miejsc, liczba pinezek: %1$d</string>
+    <string name="map_my_location">Pokaż moją lokalizację</string>
+    <string name="map_location_permission_denied">Aby pokazać Twoją lokalizację, zezwól aplikacji na dostęp do lokalizacji.</string>
+    <string name="map_missing_api_key">Brak klucza Google Maps. Uzupełnij MAPS_API_KEY w local.properties.</string>
+    <string name="map_empty_hint">Przytrzymaj palec na mapie, aby dodać pierwsze miejsce.</string>
+
     <string name="placeholder_in_progress">Ekran w przygotowaniu</string>
     <string name="placeholder_open_sample_place">Otwórz przykładowe miejsce</string>
     <string name="placeholder_open_sample_trip">Otwórz przykładową trasę</string>
