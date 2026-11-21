@@ -51,7 +51,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
@@ -77,6 +76,7 @@ import com.wanderlist.domain.model.AppError
 import com.wanderlist.domain.model.GeoPoint
 import com.wanderlist.domain.model.Place
 import com.wanderlist.domain.model.PlaceStatus
+import com.wanderlist.ui.components.StatusFilter
 import com.wanderlist.ui.components.rememberErrorMessage
 import com.wanderlist.ui.theme.PinVisited
 import com.wanderlist.ui.theme.PinWantToVisit
@@ -165,7 +165,7 @@ private fun MapContent(
     hasLocationPermission: Boolean,
     cameraPositionState: CameraPositionState,
     snackbarHostState: SnackbarHostState,
-    onFilterChange: (MapFilter) -> Unit,
+    onFilterChange: (StatusFilter) -> Unit,
     onPlaceSelected: (Long?) -> Unit,
     onMyLocationClick: () -> Unit,
     onAddPlace: (GeoPoint?) -> Unit,
@@ -232,7 +232,7 @@ private fun MapContent(
                 FilterRow(selected = uiState.filter, onFilterChange = onFilterChange)
                 if (!BuildConfig.HAS_MAPS_KEY) {
                     InfoBanner(stringResource(R.string.map_missing_api_key))
-                } else if (!uiState.isLoading && uiState.places.isEmpty() && uiState.filter == MapFilter.ALL) {
+                } else if (!uiState.isLoading && uiState.places.isEmpty() && uiState.filter == StatusFilter.ALL) {
                     InfoBanner(stringResource(R.string.map_empty_hint))
                 }
             }
@@ -272,19 +272,19 @@ private fun MapContent(
 }
 
 @Composable
-private fun FilterRow(selected: MapFilter, onFilterChange: (MapFilter) -> Unit) {
+private fun FilterRow(selected: StatusFilter, onFilterChange: (StatusFilter) -> Unit) {
     Row(
         modifier = Modifier
             .horizontalScroll(rememberScrollState())
             .padding(horizontal = 12.dp, vertical = 8.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        MapFilter.entries.forEach { filter ->
+        StatusFilter.entries.forEach { filter ->
             FilterChip(
                 selected = filter == selected,
                 onClick = { onFilterChange(filter) },
-                label = { Text(stringResource(filter.labelRes())) },
-                leadingIcon = filter.pinColor()?.let { color ->
+                label = { Text(stringResource(filter.labelRes)) },
+                leadingIcon = filter.color?.let { color ->
                     { Box(Modifier.size(10.dp).background(color, CircleShape)) }
                 },
             )
@@ -337,18 +337,6 @@ private fun SelectedPlaceCard(place: Place, onDetails: () -> Unit, onClose: () -
             Text(stringResource(R.string.action_show_details))
         }
     }
-}
-
-private fun MapFilter.labelRes() = when (this) {
-    MapFilter.ALL -> R.string.filter_all
-    MapFilter.WANT_TO_VISIT -> R.string.status_want_to_visit
-    MapFilter.VISITED -> R.string.status_visited
-}
-
-private fun MapFilter.pinColor(): Color? = when (this) {
-    MapFilter.ALL -> null
-    MapFilter.WANT_TO_VISIT -> PinWantToVisit
-    MapFilter.VISITED -> PinVisited
 }
 
 private fun android.content.Context.openAppSettings() {

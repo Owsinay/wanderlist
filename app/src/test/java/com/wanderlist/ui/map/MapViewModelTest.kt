@@ -9,6 +9,7 @@ import com.wanderlist.data.fake.SampleData
 import com.wanderlist.domain.model.AppError
 import com.wanderlist.domain.model.GeoPoint
 import com.wanderlist.domain.model.PlaceStatus
+import com.wanderlist.ui.components.StatusFilter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.runTest
@@ -44,22 +45,22 @@ class MapViewModelTest {
     @Test
     fun `filter shows only places with the chosen status`() = runTest {
         backgroundCollect()
-        viewModel.onFilterChange(MapFilter.VISITED)
+        viewModel.onFilterChange(StatusFilter.VISITED)
 
         val state = currentState()
-        assertEquals(MapFilter.VISITED, state.filter)
+        assertEquals(StatusFilter.VISITED, state.filter)
         assertTrue(state.places.isNotEmpty())
         assertTrue(state.places.all { it.status == PlaceStatus.VISITED })
     }
 
     @Test
     fun `filter and selection survive recreation through SavedStateHandle`() = runTest {
-        viewModel.onFilterChange(MapFilter.WANT_TO_VISIT)
+        viewModel.onFilterChange(StatusFilter.WANT_TO_VISIT)
         viewModel.onPlaceSelected(2)
 
         val recreated = MapViewModel(places, location, savedState)
         val state = recreated.uiState.first { !it.isLoading }
-        assertEquals(MapFilter.WANT_TO_VISIT, state.filter)
+        assertEquals(StatusFilter.WANT_TO_VISIT, state.filter)
         assertEquals(2L, state.selectedPlace?.id)
     }
 

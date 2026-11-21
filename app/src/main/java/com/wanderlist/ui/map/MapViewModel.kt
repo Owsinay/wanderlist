@@ -7,9 +7,9 @@ import com.wanderlist.data.common.toAppError
 import com.wanderlist.domain.model.AppError
 import com.wanderlist.domain.model.GeoPoint
 import com.wanderlist.domain.model.Place
-import com.wanderlist.domain.model.PlaceStatus
 import com.wanderlist.domain.repository.LocationProvider
 import com.wanderlist.domain.repository.PlaceRepository
+import com.wanderlist.ui.components.StatusFilter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
@@ -27,11 +27,9 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-enum class MapFilter { ALL, WANT_TO_VISIT, VISITED }
-
 data class MapUiState(
     val places: List<Place> = emptyList(),
-    val filter: MapFilter = MapFilter.ALL,
+    val filter: StatusFilter = StatusFilter.ALL,
     val selectedPlace: Place? = null,
     val userLocation: GeoPoint? = null,
     val isLocating: Boolean = false,
@@ -50,7 +48,7 @@ class MapViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
     // Filtr i zaznaczenie w SavedStateHandle – przetrwają obrót ekranu i zabicie procesu.
-    private val filter = savedStateHandle.getStateFlow(KEY_FILTER, MapFilter.ALL)
+    private val filter = savedStateHandle.getStateFlow(KEY_FILTER, StatusFilter.ALL)
     private val selectedId = savedStateHandle.getStateFlow<Long?>(KEY_SELECTED, null)
     private val location = MutableStateFlow(LocationState())
 
@@ -69,7 +67,7 @@ class MapViewModel @Inject constructor(
         combine(places, filter, selectedId, location) { all, filter, selectedId, location ->
             val list = all.orEmpty()
             MapUiState(
-                places = list.filter { it.matches(filter) },
+                places = list.filter(filter::matches),
                 filter = filter,
                 selectedPlace = list.find { it.id == selectedId },
                 userLocation = location.point,
@@ -81,7 +79,7 @@ class MapViewModel @Inject constructor(
     private val _hasLocationPermission = MutableStateFlow(false)
     val hasLocationPermission: StateFlow<Boolean> = _hasLocationPermission.asStateFlow()
 
-    fun onFilterChange(newFilter: MapFilter) {
+    fun onFilterChange(newFilter: StatusFilter) {
         savedStateHandle[KEY_FILTER] = newFilter
     }
 
@@ -108,12 +106,6 @@ class MapViewModel @Inject constructor(
                     events.send(MapEvent.ShowError(error.toAppError()))
                 }
         }
-    }
-
-    private fun Place.matches(filter: MapFilter) = when (filter) {
-        MapFilter.ALL -> true
-        MapFilter.WANT_TO_VISIT -> status == PlaceStatus.WANT_TO_VISIT
-        MapFilter.VISITED -> status == PlaceStatus.VISITED
     }
 
     private data class LocationState(val point: GeoPoint? = null, val isLocating: Boolean = false)
