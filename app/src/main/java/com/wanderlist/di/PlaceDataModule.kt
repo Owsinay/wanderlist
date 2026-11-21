@@ -1,6 +1,6 @@
 package com.wanderlist.di
 
-import com.wanderlist.data.fake.FakeLocationProvider
+import com.wanderlist.data.location.FusedLocationProvider
 import com.wanderlist.data.repository.RoomCategoryRepository
 import com.wanderlist.data.repository.RoomPlaceRepository
 import com.wanderlist.data.repository.RoomVisitRepository
@@ -29,7 +29,7 @@ abstract class PlaceDataModule {
     abstract fun bindCategoryRepository(impl: RoomCategoryRepository): CategoryRepository
 
     @Binds
-    abstract fun bindLocationProvider(impl: FakeLocationProvider): LocationProvider
+    abstract fun bindLocationProvider(impl: FusedLocationProvider): LocationProvider
 
     companion object {
         /** Zegar wstrzykiwany do przypadków użycia, żeby testy mogły ustawić „dzisiaj”. */
