@@ -17,6 +17,22 @@
     <string name="action_close">Zamknij</string>
     <string name="action_show_details">Pokaż szczegóły</string>
 
+    <string name="action_undo">Cofnij</string>
+    <string name="action_delete">Usuń</string>
+    <string name="action_clear">Wyczyść</string>
+
+    <string name="places_search_hint">Szukaj po nazwie lub adresie</string>
+    <string name="places_category_any">Każda kategoria</string>
+    <string name="places_sort">Sortuj</string>
+    <string name="places_sort_distance">Najbliższe</string>
+    <string name="places_sort_distance_unavailable">Wymaga dostępu do lokalizacji</string>
+    <string name="places_sort_newest">Najnowsze</string>
+    <string name="places_sort_name">Nazwa A–Z</string>
+    <string name="places_sort_priority">Priorytet</string>
+    <string name="places_empty">Nie masz jeszcze żadnych miejsc. Dodaj pierwsze miejsce, które chcesz odwiedzić.</string>
+    <string name="places_no_results">Brak miejsc pasujących do wyszukiwania i filtrów.</string>
+    <string name="places_deleted">Usunięto „%1$s”</string>
+
     <string name="status_want_to_visit">Do odwiedzenia</string>
     <string name="status_visited">Odwiedzone</string>
     <string name="filter_all">Wszystkie</string>
@@ -28,7 +44,6 @@
     <string name="map_empty_hint">Przytrzymaj palec na mapie, aby dodać pierwsze miejsce.</string>
 
     <string name="placeholder_in_progress">Ekran w przygotowaniu</string>
-    <string name="placeholder_open_sample_place">Otwórz przykładowe miejsce</string>
     <string name="placeholder_open_sample_trip">Otwórz przykładową trasę</string>
 
     <string name="error_network">Brak połączenia z internetem lub serwer nie odpowiada. Spróbuj ponownie.</string>
