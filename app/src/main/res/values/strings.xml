@@ -1,9 +1,8 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="pl">
     <string name="app_name">Wanderlist</string>
 
     <string name="screen_map">Mapa</string>
     <string name="screen_places">Miejsca</string>
-    <string name="screen_place_edit">Miejsce</string>
     <string name="screen_place_detail">Szczegóły miejsca</string>
     <string name="screen_trips">Trasy</string>
     <string name="screen_planner">Planer trasy</string>
@@ -20,6 +19,38 @@
     <string name="action_undo">Cofnij</string>
     <string name="action_delete">Usuń</string>
     <string name="action_clear">Wyczyść</string>
+
+    <string name="action_save">Zapisz</string>
+    <string name="action_discard">Odrzuć</string>
+    <string name="action_keep_editing">Edytuj dalej</string>
+
+    <string name="priority_low">Niski</string>
+    <string name="priority_medium">Średni</string>
+    <string name="priority_high">Wysoki</string>
+
+    <string name="place_edit_title_new">Nowe miejsce</string>
+    <string name="place_edit_title_edit">Edytuj miejsce</string>
+    <string name="place_edit_map_description">Mapa wyboru lokalizacji. Dotknij, aby ustawić punkt.</string>
+    <string name="place_edit_location">Lokalizacja</string>
+    <string name="place_edit_location_hint">Dotknij mapy, wyszukaj adres lub użyj swojej lokalizacji</string>
+    <string name="place_edit_use_my_location">Moja lokalizacja</string>
+    <string name="place_edit_search">Wyszukaj adres</string>
+    <string name="place_edit_no_results">Nie znaleziono adresu. Spróbuj innej nazwy.</string>
+    <string name="place_edit_name">Nazwa *</string>
+    <string name="place_edit_address">Adres</string>
+    <string name="place_edit_category">Kategoria</string>
+    <string name="place_edit_category_none">Bez kategorii</string>
+    <string name="place_edit_priority">Priorytet</string>
+    <string name="place_edit_note">Notatka</string>
+    <string name="place_edit_discard_title">Odrzucić zmiany?</string>
+    <string name="place_edit_discard_text">Wprowadzone dane nie zostały zapisane.</string>
+
+    <string name="error_name_empty">Podaj nazwę miejsca</string>
+    <string name="error_name_too_long">Nazwa może mieć najwyżej 100 znaków</string>
+    <string name="error_location_missing">Wybierz lokalizację na mapie</string>
+    <string name="error_location_invalid">Nieprawidłowe współrzędne</string>
+    <string name="error_address_too_long">Adres może mieć najwyżej 200 znaków</string>
+    <string name="error_note_too_long">Notatka może mieć najwyżej 1000 znaków</string>
 
     <string name="places_search_hint">Szukaj po nazwie lub adresie</string>
     <string name="places_category_any">Każda kategoria</string>
