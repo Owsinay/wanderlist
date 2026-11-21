@@ -1,0 +1,9 @@
+# Skopiuj ten plik jako local.properties i uzupełnij klucze.
+# sdk.dir zwykle ustawia Android Studio automatycznie.
+sdk.dir=/path/to/Android/sdk
+
+# Google Maps SDK for Android: https://console.cloud.google.com/google/maps-apis
+MAPS_API_KEY=
+
+# OpenRouteService (trasy, geokodowanie): https://openrouteservice.org/dev/#/signup
+ORS_API_KEY=

@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Wanderlist</string>
+
+    <string name="screen_map">Mapa</string>
+    <string name="screen_places">Miejsca</string>
+    <string name="screen_place_edit">Miejsce</string>
+    <string name="screen_place_detail">Szczegóły miejsca</string>
+    <string name="screen_trips">Trasy</string>
+    <string name="screen_planner">Planer trasy</string>
+    <string name="screen_stats">Statystyki</string>
+    <string name="screen_settings">Ustawienia</string>
+
+    <string name="action_back">Wstecz</string>
+    <string name="action_add_place">Dodaj miejsce</string>
+    <string name="action_edit">Edytuj</string>
+
+    <string name="placeholder_in_progress">Ekran w przygotowaniu</string>
+    <string name="placeholder_open_sample_place">Otwórz przykładowe miejsce</string>
+    <string name="placeholder_open_sample_trip">Otwórz przykładową trasę</string>
+
+    <string name="error_network">Brak połączenia z internetem lub serwer nie odpowiada. Spróbuj ponownie.</string>
+    <string name="error_database">Nie udało się zapisać lub odczytać danych.</string>
+    <string name="error_validation">Sprawdź poprawność wprowadzonych danych.</string>
+    <string name="error_permission">Brak wymaganego uprawnienia.</string>
+    <string name="error_not_found">Nie znaleziono danych.</string>
+    <string name="error_unknown">Wystąpił nieoczekiwany błąd.</string>
+</resources>
