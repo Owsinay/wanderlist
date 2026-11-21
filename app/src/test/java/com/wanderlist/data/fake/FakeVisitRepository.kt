@@ -6,16 +6,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
-import java.time.LocalDate
-import javax.inject.Inject
-import javax.inject.Singleton
 
-/** Tymczasowa implementacja w pamięci; zastąpiona przez repozytorium Room w zadaniu A1. */
-@Singleton
-class FakeVisitRepository @Inject constructor() : VisitRepository {
-    private val visits = MutableStateFlow(
-        listOf(Visit(id = 1, placeId = 1, date = LocalDate.of(2025, 8, 14), rating = 5, memo = "Piękny widok na Wisłę")),
-    )
+/** Implementacja w pamięci do testów jednostkowych. */
+class FakeVisitRepository(initial: List<Visit> = emptyList()) : VisitRepository {
+    private val visits = MutableStateFlow(initial)
 
     override fun observeVisits(): Flow<List<Visit>> = visits
 

@@ -6,12 +6,9 @@ import com.wanderlist.domain.repository.CategoryRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
-import javax.inject.Inject
-import javax.inject.Singleton
 
-/** Tymczasowa implementacja w pamięci; zastąpiona przez repozytorium Room w zadaniu A1. */
-@Singleton
-class FakeCategoryRepository @Inject constructor() : CategoryRepository {
+/** Implementacja w pamięci do testów jednostkowych. */
+class FakeCategoryRepository : CategoryRepository {
     private val categories = MutableStateFlow(
         AppDatabase.DEFAULT_CATEGORIES.mapIndexed { index, entity ->
             Category(id = index + 1L, name = entity.name, iconKey = entity.iconKey, color = entity.color)

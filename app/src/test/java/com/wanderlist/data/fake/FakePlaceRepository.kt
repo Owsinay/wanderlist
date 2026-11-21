@@ -7,13 +7,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
-import javax.inject.Inject
-import javax.inject.Singleton
 
-/** Tymczasowa implementacja w pamięci; zastąpiona przez repozytorium Room w zadaniu A1. */
-@Singleton
-class FakePlaceRepository @Inject constructor() : PlaceRepository {
-    private val places = MutableStateFlow(SampleData.places)
+/** Implementacja w pamięci do testów jednostkowych. */
+class FakePlaceRepository(initial: List<Place> = SampleData.places) : PlaceRepository {
+    private val places = MutableStateFlow(initial)
 
     override fun observePlaces(): Flow<List<Place>> = places
 
