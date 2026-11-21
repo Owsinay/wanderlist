@@ -27,6 +27,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SelectableDates
+import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberDatePickerState
@@ -155,8 +156,11 @@ fun RatingBar(rating: Int, onRatingChange: ((Int) -> Unit)?, modifier: Modifier 
     Row(modifier.selectableGroup(), verticalAlignment = Alignment.CenterVertically) {
         (1..MarkPlaceVisitedUseCase.MAX_RATING).forEach { value ->
             val description = pluralStringResource(R.plurals.visit_stars, value, value)
+            // Interaktywna gwiazdka ma pole dotyku min. 48 dp (wytyczne dostępności Material 3).
             val starModifier = if (onRatingChange != null) {
-                Modifier.selectable(selected = rating == value, role = Role.RadioButton, onClick = { onRatingChange(value) })
+                Modifier
+                    .minimumInteractiveComponentSize()
+                    .selectable(selected = rating == value, role = Role.RadioButton, onClick = { onRatingChange(value) })
             } else {
                 Modifier
             }
