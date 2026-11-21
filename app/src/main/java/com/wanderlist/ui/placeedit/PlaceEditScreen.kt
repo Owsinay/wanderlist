@@ -165,6 +165,10 @@ internal fun PlaceEditContent(
     onSearchResultSelected: (GeocodingResult) -> Unit,
     onSave: () -> Unit,
     modifier: Modifier = Modifier,
+    // Slot mapy – w testach UI zastępowany pustym elementem (Google Maps wymaga usług Google Play).
+    locationPicker: @Composable (Modifier) -> Unit = { mapModifier ->
+        LocationPicker(location = uiState.form.location, onLocationPicked = onLocationPicked, modifier = mapModifier)
+    },
 ) {
     val form = uiState.form
     Scaffold(
@@ -196,10 +200,8 @@ internal fun PlaceEditContent(
         ) {
             if (uiState.isLoading || uiState.isSaving) LinearProgressIndicator(Modifier.fillMaxWidth())
 
-            LocationPicker(
-                location = form.location,
-                onLocationPicked = onLocationPicked,
-                modifier = Modifier
+            locationPicker(
+                Modifier
                     .fillMaxWidth()
                     .height(200.dp),
             )

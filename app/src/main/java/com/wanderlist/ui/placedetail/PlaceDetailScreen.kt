@@ -166,6 +166,8 @@ internal fun PlaceDetailContent(
     onDeleteVisit: (Visit) -> Unit,
     onRetryWeather: () -> Unit,
     modifier: Modifier = Modifier,
+    // Slot mapy – w testach UI zastępowany pustym elementem (Google Maps wymaga usług Google Play).
+    miniMap: @Composable (Place) -> Unit = { MiniMap(it) },
 ) {
     val place = uiState.place
     Scaffold(
@@ -204,7 +206,7 @@ internal fun PlaceDetailContent(
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp),
             ) {
-                item { MiniMap(place) }
+                item { miniMap(place) }
                 item { InfoSection(uiState) }
                 item {
                     Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
