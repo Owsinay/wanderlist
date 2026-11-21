@@ -3,7 +3,6 @@
 
     <string name="screen_map">Mapa</string>
     <string name="screen_places">Miejsca</string>
-    <string name="screen_place_detail">Szczegóły miejsca</string>
     <string name="screen_trips">Trasy</string>
     <string name="screen_planner">Planer trasy</string>
     <string name="screen_stats">Statystyki</string>
@@ -23,6 +22,52 @@
     <string name="action_save">Zapisz</string>
     <string name="action_discard">Odrzuć</string>
     <string name="action_keep_editing">Edytuj dalej</string>
+
+    <string name="action_retry">Spróbuj ponownie</string>
+
+    <string name="detail_navigate">Nawiguj</string>
+    <string name="detail_mark_visited">Odwiedzone</string>
+    <string name="detail_add_visit">Dodaj odwiedziny</string>
+    <string name="detail_priority">Priorytet: %1$s</string>
+    <string name="detail_visits">Odwiedziny (%1$d)</string>
+    <string name="detail_no_visits">Jeszcze tu nie byłeś. Oznacz miejsce jako odwiedzone po wizycie.</string>
+    <string name="detail_map_description">Mapa z lokalizacją miejsca %1$s</string>
+    <string name="detail_no_maps_app">Nie znaleziono aplikacji do nawigacji.</string>
+    <string name="detail_delete_title">Usunąć miejsce?</string>
+    <string name="detail_delete_text">Miejsce zostanie usunięte razem z historią odwiedzin i zdjęciami. Tej operacji nie można cofnąć.</string>
+
+    <string name="visit_dialog_title">Odwiedziny</string>
+    <string name="visit_date">Data: %1$s</string>
+    <string name="visit_rating">Ocena</string>
+    <string name="visit_memo">Wspomnienie</string>
+    <string name="visit_add_photo">Dodaj zdjęcie</string>
+    <string name="visit_photo_selected">Wybrano zdjęcie – zmień</string>
+    <string name="visit_photo_description">Zdjęcie z odwiedzin</string>
+    <string name="visit_delete">Usuń odwiedziny</string>
+    <string name="visit_saved">Zapisano odwiedziny</string>
+    <plurals name="visit_stars">
+        <item quantity="one">%1$d gwiazdka</item>
+        <item quantity="few">%1$d gwiazdki</item>
+        <item quantity="many">%1$d gwiazdek</item>
+        <item quantity="other">%1$d gwiazdki</item>
+    </plurals>
+
+    <string name="weather_title">Pogoda teraz</string>
+    <string name="weather_loading">Wczytywanie pogody…</string>
+    <string name="weather_now">%1$d°C, %2$s</string>
+    <string name="weather_wind">Wiatr %1$d km/h</string>
+    <string name="weather_clear">bezchmurnie</string>
+    <string name="weather_partly_cloudy">częściowe zachmurzenie</string>
+    <string name="weather_overcast">pochmurno</string>
+    <string name="weather_fog">mgła</string>
+    <string name="weather_rain">deszcz</string>
+    <string name="weather_snow">śnieg</string>
+    <string name="weather_storm">burza</string>
+    <string name="weather_unknown">brak opisu</string>
+
+    <string name="error_rating">Wybierz ocenę od 1 do 5</string>
+    <string name="error_visit_date">Data odwiedzin nie może być z przyszłości</string>
+    <string name="error_memo_too_long">Wspomnienie może mieć najwyżej 1000 znaków</string>
 
     <string name="priority_low">Niski</string>
     <string name="priority_medium">Średni</string>
