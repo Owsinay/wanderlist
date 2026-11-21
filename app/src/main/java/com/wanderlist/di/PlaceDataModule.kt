@@ -1,11 +1,13 @@
 package com.wanderlist.di
 
 import com.wanderlist.data.location.FusedLocationProvider
+import com.wanderlist.data.photo.InternalPhotoStorage
 import com.wanderlist.data.repository.RoomCategoryRepository
 import com.wanderlist.data.repository.RoomPlaceRepository
 import com.wanderlist.data.repository.RoomVisitRepository
 import com.wanderlist.domain.repository.CategoryRepository
 import com.wanderlist.domain.repository.LocationProvider
+import com.wanderlist.domain.repository.PhotoStorage
 import com.wanderlist.domain.repository.PlaceRepository
 import com.wanderlist.domain.repository.VisitRepository
 import dagger.Binds
@@ -30,6 +32,9 @@ abstract class PlaceDataModule {
 
     @Binds
     abstract fun bindLocationProvider(impl: FusedLocationProvider): LocationProvider
+
+    @Binds
+    abstract fun bindPhotoStorage(impl: InternalPhotoStorage): PhotoStorage
 
     companion object {
         /** Zegar wstrzykiwany do przypadków użycia, żeby testy mogły ustawić „dzisiaj”. */
