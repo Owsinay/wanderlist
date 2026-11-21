@@ -107,6 +107,7 @@
     <string name="places_sort_priority">Priorytet</string>
     <string name="places_empty">Nie masz jeszcze żadnych miejsc. Dodaj pierwsze miejsce, które chcesz odwiedzić.</string>
     <string name="places_no_results">Brak miejsc pasujących do wyszukiwania i filtrów.</string>
+    <string name="places_select_hint">Wybierz miejsce z listy, aby zobaczyć szczegóły.</string>
     <string name="places_deleted">Usunięto „%1$s”</string>
 
     <string name="status_want_to_visit">Do odwiedzenia</string>
