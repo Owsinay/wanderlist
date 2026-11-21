@@ -27,19 +27,16 @@ class MapViewModelTest {
     private val places = FakePlaceRepository()
     private val location = FakeLocationProvider()
     private val savedState = SavedStateHandle()
-    private val viewModel = MapViewModel(places, location, savedState)
+    private val viewModel by lazy { MapViewModel(places, location, savedState) }
 
     private suspend fun currentState(): MapUiState = viewModel.uiState.first { !it.isLoading }
 
     @Test
     fun `all places are shown by default`() = runTest {
-        viewModel.uiState.test {
-            awaitItem() // stan początkowy
-            val state = awaitItem()
-            assertFalse(state.isLoading)
-            assertEquals(SampleData.places.size, state.places.size)
-            cancelAndIgnoreRemainingEvents()
-        }
+        backgroundCollect()
+        val state = currentState()
+        assertEquals(StatusFilter.ALL, state.filter)
+        assertEquals(SampleData.places.size, state.places.size)
     }
 
     @Test
