@@ -1,0 +1,29 @@
+{
+  "type": "FeatureCollection",
+  "bbox": [16.9252, 51.1079, 17.0385, 52.4064],
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "segments": [
+          { "distance": 183400.2, "duration": 7920.5 }
+        ],
+        "summary": { "distance": 183400.2, "duration": 7920.5 },
+        "way_points": [0, 4]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [16.9252, 52.4064],
+          [16.9710, 52.0120],
+          [17.0120, 51.6450],
+          [17.0290, 51.3020],
+          [17.0385, 51.1079]
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "query": { "coordinates": [[16.9252, 52.4064], [17.0385, 51.1079]], "profile": "driving-car", "format": "geojson" }
+  }
+}
