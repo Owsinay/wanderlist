@@ -1,0 +1,28 @@
+{
+  "type": "FeatureCollection",
+  "bbox": [16.8, 52.3, 17.0, 52.5],
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [16.9335, 52.4082] },
+      "properties": {
+        "name": "Stary Rynek",
+        "locality": "Poznań",
+        "country": "Polska",
+        "country_a": "POL",
+        "label": "Stary Rynek, Poznań, Polska"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [16.9186, 52.4009] },
+      "properties": {
+        "name": "Zamek Cesarski",
+        "locality": "Poznań",
+        "country": "Polska",
+        "country_a": "POL",
+        "label": "Zamek Cesarski, Poznań, Polska"
+      }
+    }
+  ]
+}
